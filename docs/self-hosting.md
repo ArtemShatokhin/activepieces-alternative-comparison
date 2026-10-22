@@ -54,7 +54,7 @@ A Linux server with a public IP is the base requirement. The bootstrap installs 
 - DNS A or AAAA records for `<domain>` and `api.<domain>`, both pointed at the server before the first start, so Caddy can get a certificate.
 - A wildcard record for `*.p.<domain>` for sandbox previews.
 - Ports 80 and 443 open inbound.
-- A sandbox provider key, one of Daytona, Platinum, or E2B. Without one, sessions do not start.
+- A sandbox provider key, Platinum or the legacy Daytona fallback. Without one, sessions do not start.
 - A model provider key, which you add in the web app after the first sign-in.
 
 One detail matters for planning: sessions run on a cloud sandbox provider, not on the server, so the instance must be reachable from the internet for those sandboxes to call back. The three reachability modes are `domain` for production, `tunnel` for evaluation, and `local`, where every port binds to loopback and sessions cannot start because the sandbox cannot reach the API.
